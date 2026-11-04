@@ -1,0 +1,29 @@
+{{/* Returns the recording of a paper or a session as dict "id" (YouTube
+     video id) and optionally "presenter" and "start" (seconds), or an empty
+     dict when there is none.
+
+     Expects dict "year" and either "pid" (paper id) or "session" (session
+     key as used in schedule-YEAR.yml, e.g. "invited/Goldin").
+
+     Source: data/videos-YEAR.yml written by scripts/fetch_videos.py
+       papers:   { "63": {id: ..., presenter: ...} }
+       sessions: { "invited/Goldin": {id: ...} }
+     Older years may still use data/youtube-YEAR.json
+       [{pid: 100, id: ..., presenter: ...}] */}}
+{{ $year := string .year }}
+{{ $v := dict }}
+{{ $data := index site.Data (printf "videos-%s" $year) | default dict }}
+{{ with .pid }}
+	{{ $key := printf "%d" (int .) }}
+	{{ with index ($data.papers | default dict) $key }}{{ $v = . }}{{ end }}
+	{{ if not $v.id }}
+		{{ $legacy := index site.Data (printf "youtube-%s" $year) | default slice }}
+		{{ range first 1 (where $legacy "pid" (int $key)) }}
+			{{ if .id }}{{ $v = dict "id" .id "presenter" .presenter }}{{ end }}
+		{{ end }}
+	{{ end }}
+{{ end }}
+{{ with .session }}
+	{{ with index ($data.sessions | default dict) . }}{{ $v = . }}{{ end }}
+{{ end }}
+{{ return $v }}

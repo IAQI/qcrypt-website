@@ -1,0 +1,23 @@
+{{/* List of papers upgraded to talks, from data/accepted_upgraded.json (older years). */}}
+{{ $year := .Get "year" | default (partial "program/year.html" .Page) | string }}
+{{ $papers := site.Data.accepted_upgraded | default slice }}
+
+<section class="papers">
+	<div class="inner">
+		{{ .Inner }}
+	</div>
+
+	<ul class="paper-list">
+		{{ range $paper := $papers }}
+			{{ if partial "program/should-display.html" $paper }}
+			<li value="{{ $paper.pid }}">
+				{{ partial "paper.html" (dict "paper" $paper "currentYear" $year) }}
+				{{ range partial "program/merged-papers.html" (dict "paper" $paper "papers" $papers) }}
+					merged with #{{ .pid }}:
+					{{ partial "paper.html" (dict "paper" . "currentYear" $year) }}
+				{{ end }}
+			</li>
+			{{ end }}
+		{{ end }}
+	</ul>
+</section>

@@ -1,0 +1,23 @@
+{{/* Returns a map from paper id (as a string) to where that paper is
+     presented: dict "page" (the session page), "day" and "time".
+
+     Built from data/schedule-YEAR.yml and the `papers:` lists of the session
+     pages it names, so it is always in sync with the schedule. Call it with
+     partialCached "program/session-index.html" $year $year. */}}
+{{ $year := string . }}
+{{ $s := newScratch }}
+{{ $schedule := index site.Data (printf "schedule-%s" $year) | default slice }}
+{{ range $day := $schedule }}
+	{{ range $slot := $day.sessions }}
+		{{ with site.GetPage (printf "/%s/sessions/%s" $year $slot.session) }}
+			{{ $page := . }}
+			{{ range $pid := .Params.papers }}
+				{{ $key := printf "%d" (int $pid) }}
+				{{ if not (index ($s.Get "idx" | default dict) $key) }}
+					{{ $s.SetInMap "idx" $key (dict "page" $page "key" $slot.session "day" $day.day "time" $slot.time) }}
+				{{ end }}
+			{{ end }}
+		{{ end }}
+	{{ end }}
+{{ end }}
+{{ return ($s.Get "idx" | default dict) }}

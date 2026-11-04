@@ -1,0 +1,99 @@
+{{ define "main" }}
+{{/* The schedule page. Reads data/schedule-YEAR.yml:
+
+     - day: '2026-08-24'
+       sessions:
+         - session: invited/Goldin   # page content/YEAR/sessions/invited/Goldin.md
+           time: '11:45'
+           end: '12:30'             # optional
+           location: room_140       # optional, key in locations-YEAR.yml (or a list)
+
+     Sessions starting at the same time are shown side by side (parallel tracks). */}}
+{{ $currentYear := partial "program/year.html" . }}
+{{ $scheduleKey := printf "schedule-%s" $currentYear }}
+{{ $schedule := index site.Data $scheduleKey | default slice }}
+
+{{ $city := (index site.Params $currentYear).city }}
+{{ $timeanddate_cityid := (index site.Params $currentYear).timeanddate_cityid }}
+
+{{ if hugo.IsProduction | not }}
+<div style="background: #f0f0f0; padding: 10px;">
+	<details>
+		<summary>Debug Info from schedule/list.html</summary>
+		<pre>
+Year: {{ $currentYear }}
+Schedule Key: {{ $scheduleKey }}
+Days: {{ len $schedule }}
+City: {{ $city }}
+City id: {{ $timeanddate_cityid }}
+		</pre>
+	</details>
+</div>
+{{ end }}
+
+{{ with $schedule }}
+<section class="schedule">
+	<nav class="day-tabs">
+		{{ range $day := . }}
+		<a href="#day_{{ $day.day }}">{{- time.Format "Mon, 2 Jan" $day.day -}}</a>
+		{{ end }}
+	</nav>
+	{{ with $city }}
+	<div class="timezone">
+		Date and time are shown in:
+		<a class="btn primary" href="https://www.timeanddate.com/worldclock/personal.html?cities={{- $timeanddate_cityid -}},16,33,136,179,248&wch=3" target="_blank">
+			<svg class="icon icon-link">
+			<use xlink:href="#link"></use>
+		</svg> {{ . }}
+		</a>
+	</div>
+	{{ end }}
+
+	{{ with $.Params.suggestion }}<i>{{ . }}</i>{{ end }}
+
+	{{ range $day := . }}
+	<article id="day_{{ $day.day }}" class="day">
+	<div class="fulldate">{{- time.Format "Monday, 2 Jan 2006" $day.day -}}</div>
+	<ul class="talks">
+		{{/* group sessions by start time, keeping their order */}}
+		{{ $times := slice }}
+		{{ $byTime := dict }}
+		{{ range $slot := $day.sessions }}
+			{{ $t := $slot.time }}
+			{{ if not (isset $byTime $t) }}
+				{{ $times = $times | append $t }}
+				{{ $byTime = merge $byTime (dict $t (slice $slot)) }}
+			{{ else }}
+				{{ $byTime = merge $byTime (dict $t ((index $byTime $t) | append $slot)) }}
+			{{ end }}
+		{{ end }}
+
+		{{ range $t := $times }}
+			{{ $slots := index $byTime $t }}
+			{{ $hhmm := split $t ":" }}
+			<div class="session-group">
+			{{ range $slot := $slots }}
+				{{ $sessionPage := site.GetPage (printf "/%s/sessions/%s" $currentYear $slot.session) }}
+				{{ if $sessionPage }}
+				<div class="session tag-{{ anchorize (delimit ($sessionPage.Params.tags | default (slice)) " ") }}">
+					<span class="startt">
+						<span class="hh">{{ index $hhmm 0 }}</span>
+						<span class="mm">{{ index $hhmm 1 }}</span>
+					</span>
+					{{ partial "schedule-session.html" (dict "page" $sessionPage "session" $slot) }}
+				</div>
+				{{ else }}
+					{{ warnf "schedule-%s: no session page for %q (expected content/%s/sessions/%s.md)" $currentYear $slot.session $currentYear $slot.session }}
+				{{ end }}
+			{{ end }}
+			</div>
+		{{ end }}
+	</ul>
+	</article>
+	{{ end }}
+</section>
+{{ end }}
+
+{{ .Content }}
+
+{{ end }}

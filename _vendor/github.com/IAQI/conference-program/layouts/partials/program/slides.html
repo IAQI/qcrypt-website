@@ -1,0 +1,20 @@
+{{/* Returns the URL of the slides of a paper, or "".
+
+     Looks in content/YEAR/sessions/slides/ for "<pid>.pdf" (or any other
+     extension), or for the older naming "<Prefix><YEAR>TalkSlides<NNN>...",
+     where Prefix is site.Params.programFilePrefix (default "QCrypt").
+     Expects dict "year" and "pid". */}}
+{{ $year := string .year }}
+{{ $pid := int .pid }}
+{{ $url := "" }}
+{{ $dir := printf "/content/%s/sessions/slides" $year }}
+{{ if fileExists $dir }}
+	{{ $legacy := printf "%s%sTalkSlides%03d" (site.Params.programFilePrefix | default "QCrypt") $year $pid }}
+	{{ $plain := printf "%d." $pid }}
+	{{ range readDir $dir }}
+		{{ if or (hasPrefix .Name $plain) (hasPrefix .Name $legacy) }}
+			{{ $url = printf "/%s/sessions/slides/%s" $year .Name }}
+		{{ end }}
+	{{ end }}
+{{ end }}
+{{ return $url }}

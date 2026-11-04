@@ -1,0 +1,124 @@
+{{/* One card on the schedule page.
+
+     Expects dict "page" (the session page) and "session" (its slot in
+     data/schedule-YEAR.yml: {session, time, end?, location?}).
+
+     Session page front matter used here:
+       title, chair, note, cardOptions, tags, level, showContent,
+       papers (paper ids), paperTitleOverrides, speakers (speaker keys),
+       videoId, presentation(s)
+
+     The whole card links to the session page. Links that leave the card
+     (videos) are rendered after it, since links cannot be nested. */}}
+{{ $session := .session }}
+{{ $page := .page }}
+{{ $year := partial "program/year.html" $page }}
+{{ $papers := index site.Data (printf "accepted-papers-%s" $year) | default slice }}
+
+{{/* Resolve the papers of this session once. */}}
+{{ $records := slice }}
+{{ range $pid := $page.Params.papers }}
+	{{ range first 1 (where $papers "pid" (int $pid)) }}
+		{{ $paper := . }}
+		{{ with index ($page.Params.paperTitleOverrides | default dict) (string $pid) }}
+			{{ $paper = merge $paper (dict "title" .) }}
+		{{ end }}
+		{{ $records = $records | append $paper }}
+	{{ end }}
+{{ end }}
+
+{{/* A session holding a single paper is titled after it; show the title once. */}}
+{{ $single := false }}
+{{ if eq (len $records) 1 }}{{ $single = eq $page.Title (index $records 0).title }}{{ end }}
+{{ $chair := $page.Params.chair }}
+{{ if in (slice "None" "none" "null" "TBA" "TBD") (string $chair) }}{{ $chair = "" }}{{ end }}
+
+<a href="{{ $page.RelPermalink }}">
+	{{ if not $single }}
+	<h4>
+		{{ $page.Title }}
+		{{ with $page.Params.note }}<em class="session-note">({{ . }})</em>{{ end }}
+		{{ with $page.Params.language }}<span class="language {{ anchorize . }}"></span>{{ end }}
+		{{ with $chair }}<span class="chair"><strong>Chair: </strong>{{ . }}</span>{{ end }}
+	</h4>
+	{{ end }}
+	{{ with $page.Params.cardOptions }}
+	<ul class="card-options">
+		{{ range . }}<li>{{ . | safeHTML }}</li>{{ end }}
+	</ul>
+	{{ end }}
+	{{ $rooms := "" }}
+	{{ with $session.location }}{{ $rooms = partial "program/session-locations.html" (dict "location" . "year" $year) }}{{ end }}
+	{{ if not $single }}
+	{{ $rooms }}
+	<hr>
+	{{ end }}
+
+	{{ if or $page.Params.tags $page.Params.level (eq $page.Params.showContent true) }}
+	<div class="info">
+		{{ if $page.Params.tags }}
+		<div class="tags">
+			{{ range $page.Params.tags }}
+				{{ range first 1 (where site.Data.categories "key" .) }}
+				<span>{{ .name }}</span>
+				{{ end }}
+			{{ end }}
+		</div>
+		{{ end }}
+		{{ with $page.Params.level }}<div class="complexity">{{ . }}</div>{{ end }}
+		{{ if eq $page.Params.showContent true }}{{ $page.Content }}{{ end }}
+	</div>
+	{{ end }}
+
+	{{ with $records }}
+	<ul class="paper-list{{ if $single }} single-paper{{ end }}">
+		{{ range $paper := . }}
+			{{ if partial "program/should-display.html" $paper }}
+			<li class="paper-short">
+				{{ partial "paper-simple.html" (dict "paper" $paper "currentYear" $year) }}
+				{{ range partial "program/merged-papers.html" (dict "paper" $paper "papers" $papers) }}
+					<i>merged with</i>
+					{{ partial "paper-simple.html" (dict "paper" . "currentYear" $year) }}
+				{{ end }}
+			</li>
+			{{ end }}
+		{{ end }}
+	</ul>
+	{{ end }}
+	{{ if $single }}
+	{{ $rooms }}
+	{{ with $chair }}<div class="chair"><strong>Chair: </strong>{{ . }}</div>{{ end }}
+	{{ end }}
+
+	{{ if and $page.Params.speakers (ne site.Params.programScheduleSpeakers false) }}
+	<ul class="speakers">
+		{{ range partial "program/speakers.html" (dict "keys" $page.Params.speakers "year" $year) }}
+		<li class="speaker">
+			<div class="speaker-img" style="background-image: url({{ .Params.photoURL }});"></div>
+			<strong class="speaker-name">{{ .Params.name }}</strong>
+		</li>
+		{{ end }}
+	</ul>
+	{{ end }}
+</a>
+
+{{/* Recordings: one for the whole session, or one per paper. */}}
+{{ $links := slice }}
+{{ $sessionVideo := partial "program/video.html" (dict "year" $year "session" $session.session) }}
+{{ with $sessionVideo.id | default $page.Params.videoId }}
+	{{ $links = $links | append (dict "url" (printf "https://youtu.be/%s" .) "label" "Video") }}
+{{ end }}
+{{ range $paper := $records }}
+	{{ with partial "program/video.html" (dict "year" $year "pid" $paper.pid) }}
+		{{ if .id }}
+		{{ $label := "Video" }}
+		{{ if gt (len $records) 1 }}{{ $label = printf "Video: %s" (truncate 50 $paper.title) }}{{ end }}
+		{{ $links = $links | append (dict "url" (printf "https://youtu.be/%s" .id) "label" $label) }}
+		{{ end }}
+	{{ end }}
+{{ end }}
+{{ with $links }}
+<div class="session-media">
+	{{ range . }}<a href="{{ .url }}" target="_blank" rel="noopener">&#9654; {{ .label }}</a>{{ end }}
+</div>
+{{ end }}

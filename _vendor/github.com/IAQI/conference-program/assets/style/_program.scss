@@ -1,0 +1,91 @@
+// Styles for the elements added by the conference-program module.
+// Each site includes it from its theme-YEAR.scss with:  @use "program";
+// Everything else (colours, fonts, card look) stays in the site's own theme.
+
+.paper-list, .poster-list {
+  .paper-single {
+    scroll-margin-top: 100px; // keep #paper-<pid> targets clear of the sticky header
+
+    &:target {
+      outline: 2px solid var(--primary, #4c9cde);
+      outline-offset: 4px;
+    }
+  }
+
+  .paper-extended-abstract,
+  .paper-proceedings,
+  .paper-youtubeid,
+  .paper-slides,
+  .paper-poster-pdf,
+  .paper-session {
+    display: inline;
+    padding-left: var(--space-1, .25rem);
+  }
+
+  .presenter {
+    font-weight: 700;
+  }
+}
+
+.schedule {
+  .session-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+
+    > .session {
+      flex: 1 1 0;
+      min-width: 200px;
+    }
+
+    > .session:not(:first-child) .startt {
+      display: none;
+    }
+  }
+
+  .paper-list.single-paper {
+    list-style: none;
+    padding-left: var(--space-4, 1rem);
+    margin-top: .5rem;
+  }
+
+  .paper-simple em.presenter {
+    font-style: italic;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .chair {
+    font-size: .85em;
+    font-weight: normal;
+  }
+
+  .session-media {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .25rem 1rem;
+    margin: .25rem 0 0 var(--space-4, 1rem);
+    font-size: .9em;
+
+    a {
+      text-decoration: none;
+      white-space: nowrap;
+      &:hover { text-decoration: underline; }
+    }
+  }
+}
+
+.talk {
+  .chair {
+    margin: .5rem 0;
+  }
+
+  .video-title {
+    margin: 1.5rem 0 .5rem;
+    font-size: 1.1em;
+  }
+
+  .video + .video {
+    margin-top: 1rem;
+  }
+}

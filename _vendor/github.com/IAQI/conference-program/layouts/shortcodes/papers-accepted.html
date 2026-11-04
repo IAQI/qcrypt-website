@@ -1,0 +1,36 @@
+{{/* List of accepted papers, from data/accepted-papers-YEAR.json.
+
+     {{< papers-accepted year=2026 >}}intro text{{< /papers-accepted >}}
+
+     Parameters:
+       year       - defaults to the year section the page is in
+       talk-type  - only papers whose options.talk-type equals this value
+       presenters - "false" to not emphasise presenting authors
+     Each entry gets the anchor #paper-<pid> and links to its session. */}}
+{{ $year := .Get "year" | default (partial "program/year.html" .Page) | string }}
+{{ $talkType := .Get "talk-type" }}
+{{ $presenters := ne (.Get "presenters" | default "true" | string) "false" }}
+{{ $papers := index site.Data (printf "accepted-papers-%s" $year) | default slice }}
+{{ $list := $papers }}
+{{ with $talkType }}{{ $list = where $papers "options.talk-type" . }}{{ end }}
+
+<section class="papers">
+	{{/* fix as suggested in https://github.com/gohugoio/hugo/issues/6984#issuecomment-617879910 */}}
+	<div class="inner">
+		{{ .Inner }}
+	</div>
+
+	<ul class="paper-list">
+		{{ range $paper := $list }}
+			{{ if partial "program/should-display.html" $paper }}
+			<li value="{{ $paper.pid }}">
+				{{ partial "paper.html" (dict "paper" $paper "currentYear" $year "presenters" $presenters) }}
+				{{ range partial "program/merged-papers.html" (dict "paper" $paper "papers" $papers) }}
+					merged with #{{ .pid }}:
+					{{ partial "paper.html" (dict "paper" . "currentYear" $year "presenters" $presenters) }}
+				{{ end }}
+			</li>
+			{{ end }}
+		{{ end }}
+	</ul>
+</section>

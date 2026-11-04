@@ -1,0 +1,176 @@
+{{ define "main" }}
+{{/* A session page: content/YEAR/sessions/<key>.md, where <key> is what
+     data/schedule-YEAR.yml uses (e.g. "contributed/63", "invited/Goldin").
+
+     Front matter: title, format, tags, level, chair, speakers (speaker keys),
+     papers (paper ids), presentation / presentations (slide URLs),
+     videoId (+ videoTime), videoIds (older pages).
+     Recordings listed in data/videos-YEAR.yml are embedded automatically. */}}
+{{ $currentYear := partial "program/year.html" . }}
+{{ $papers := index site.Data (printf "accepted-papers-%s" $currentYear) | default slice }}
+{{ $key := strings.TrimSuffix ".md" (strings.TrimPrefix (printf "%s/sessions/" $currentYear) (replace .File.Path "\\" "/")) }}
+
+{{ if hugo.IsProduction | not }}
+<div style="background: #f0f0f0; padding: 10px; margin: 10px; font-family: monospace; font-size: 12px;">
+	<details>
+		<summary>Debug Info from sessions/single.html</summary>
+		<pre>
+Year: {{ $currentYear }}
+Schedule key: {{ $key }}
+RelPermalink: {{ .RelPermalink }}
+		</pre>
+	</details>
+</div>
+{{ end }}
+
+<section class="talk">
+
+	{{ if .Params.tags }}
+	<header class="tag-{{ anchorize (delimit .Params.tags "" ) }}">
+	<div class="tags">{{- range .Params.tags -}}{{- range first 1 (where site.Data.categories "key" .) -}}<span>{{ .name }}</span>{{- end -}}{{- end -}}</div>
+	{{ else }}
+	<header>
+	{{ end }}
+
+	<h1 class="text">{{ .Title }}</h1>
+	<span class="language {{ anchorize .Params.language }}"></span>
+	</header>
+
+	<div class="info">
+		{{ if .Params.level }}
+		<div class="complexity">{{ .Params.level }}</div>
+		{{ end }}
+		{{ if .Params.format }}
+		<div class="type type-{{ anchorize .Params.format }}">{{ .Params.format }}</div>
+		{{ end }}
+
+		{{ if not (hasPrefix .File.TranslationBaseName "__") }}
+			{{/* when is this session running? It may appear several times. */}}
+			{{ $days := slice }}
+			{{ $schedule := index site.Data (printf "schedule-%s" $currentYear) | default slice }}
+			{{ range $day := $schedule }}
+				{{ $ranges := slice }}
+				{{ $open := "" }}
+				{{ range $slot := $day.sessions }}
+					{{ if $open }}
+						{{ if ne $slot.time $open }}
+							{{ $ranges = $ranges | append (printf "%s - %s" $open $slot.time) }}
+							{{ $open = "" }}
+						{{ end }}
+					{{ end }}
+					{{ if eq $slot.session $key }}
+						{{ if $slot.end }}
+							{{ $ranges = $ranges | append (printf "%s - %s" $slot.time $slot.end) }}
+						{{ else }}
+							{{ $open = $slot.time }}
+						{{ end }}
+					{{ end }}
+				{{ end }}
+				{{ with $open }}{{ $ranges = $ranges | append . }}{{ end }}
+				{{ with $ranges }}
+					{{ $days = $days | append (printf "%s, %s" (dateFormat "Mon, 2 Jan 2006" $day.day) (delimit . " and ")) }}
+				{{ end }}
+			{{ end }}
+			{{ with $days }}
+				<div class="time">{{ delimit . "; " }}</div>
+			{{ else }}
+				{{ warnf "session %q is not in schedule-%s" $key $currentYear }}
+			{{ end }}
+		{{ end }}
+
+		{{ $chair := .Params.chair }}
+		{{ if and $chair (not (in (slice "None" "none" "null" "TBA" "TBD") (string $chair))) }}
+		<div class="chair"><strong>Chair:</strong> {{ $chair }}</div>
+		{{ end }}
+
+		<div class="detail">
+			<ul class="speakers">
+				{{ range partial "program/speakers.html" (dict "keys" .Params.speakers "year" $currentYear) }}
+				<li>
+					<a class="visually-hidden" aria-hidden="true" href="{{ .Params.website }}" target="_blank">{{ .Params.name }}</a>
+					<a class="speaker" href="{{ .Params.website }}" target="_blank">
+						<div class="speaker-img" style="background-image: url({{ .Params.photoURL }});"></div>
+						<strong class="speaker-name">{{ .Params.name }}</strong>
+						<span class="speaker-country">{{ .Params.city }}</span>
+						<div class="speaker-company">{{ .Params.company }}</div>
+					</a>
+				</li>
+				{{ end }}
+			</ul>
+
+			{{ $records := slice }}
+			<ul class="paper-list">
+				{{ range $pid := .Params.papers }}
+					{{ range first 1 (where $papers "pid" (int $pid)) }}
+						{{ $paper := . }}
+						{{ $records = $records | append $paper }}
+						{{ if partial "program/should-display.html" $paper }}
+						<li>
+							{{ partial "paper.html" (dict "paper" $paper "currentYear" $currentYear "showSession" false) }}
+							{{ range partial "program/merged-papers.html" (dict "paper" $paper "papers" $papers) }}
+								merged with
+								{{ partial "paper.html" (dict "paper" . "currentYear" $currentYear "showSession" false) }}
+							{{ end }}
+						</li>
+						{{ end }}
+					{{ end }}
+				{{ end }}
+			</ul>
+			<div class="content">{{ .Content }}</div>
+		</div>
+	</div>
+
+	<div class="media">
+		{{ if .Params.presentation }}
+		<a class="social-slides" href="{{ .Params.presentation }}" rel="noreferrer" target="_blank">
+			{{ partial "icon.html" "slides" }}
+			See the slides
+		</a>
+		{{ end }}
+
+		{{ range $i, $presentation := .Params.presentations }}
+		<a class="social-slides" href="{{ $presentation }}" rel="noreferrer" target="_blank">
+			{{ partial "icon.html" "slides" }}
+			See the slides {{ add $i 1 }}</a><br>
+		{{ end }}
+
+		{{/* one recording of the whole session: videos-YEAR.yml or videoId */}}
+		{{ $sessionVideo := partial "program/video.html" (dict "year" $currentYear "session" $key) }}
+		{{ $videoId := $sessionVideo.id | default .Params.videoId }}
+		{{ $videoTime := $sessionVideo.start | default .Params.videoTime }}
+		{{ with $videoId }}
+		<div class="video" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+			<iframe src="https://www.youtube.com/embed/{{ . }}{{ with $videoTime }}?start={{ . }}{{ end }}"
+				style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen loading="lazy"
+				title="YouTube Video"></iframe>
+		</div>
+		{{ end }}
+
+		{{/* one recording per paper: videos-YEAR.yml, else the older videoIds list */}}
+		{{ $paperVideos := slice }}
+		{{ range $records }}
+			{{ $v := partial "program/video.html" (dict "year" $currentYear "pid" .pid) }}
+			{{ if $v.id }}{{ $paperVideos = $paperVideos | append (dict "id" $v.id "start" $v.start "title" .title) }}{{ end }}
+		{{ end }}
+		{{ if not $paperVideos }}
+			{{ range .Params.videoIds }}{{ $paperVideos = $paperVideos | append (dict "id" .) }}{{ end }}
+		{{ end }}
+		{{ range $paperVideos }}
+		{{ if and .title (gt (len $paperVideos) 1) }}<h3 class="video-title">{{ .title }}</h3>{{ end }}
+		<div class="video" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+			<iframe src="https://www.youtube.com/embed/{{ .id }}{{ with .start }}?start={{ . }}{{ end }}"
+				style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen loading="lazy"
+				title="{{ .title | default "YouTube Video" }}"></iframe>
+		</div>
+		{{ end }}
+	</div>
+
+</section>
+{{ end }}
+
+{{ define "scripts" }}
+	<script
+		src="https://code.jquery.com/jquery-3.7.1.min.js"
+		integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+		crossorigin="anonymous"></script>
+{{ end }}

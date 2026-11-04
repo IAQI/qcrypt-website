@@ -1,0 +1,10 @@
+{{/* Renders the room(s) of a schedule slot. Expects dict "location" (a key
+     or a list of keys of data/locations-YEAR.yml) and "year". */}}
+{{ $locationData := index site.Data (printf "locations-%s" .year) | default slice }}
+{{ $keys := .location }}
+{{ if not (reflect.IsSlice $keys) }}{{ $keys = slice $keys }}{{ end }}
+{{ range $keys }}
+	{{ range first 1 (where $locationData "key" .) }}
+		{{ partial "location.html" . }}
+	{{ end }}
+{{ end }}

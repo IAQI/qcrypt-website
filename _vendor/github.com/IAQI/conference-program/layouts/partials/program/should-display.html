@@ -1,0 +1,16 @@
+{{/* Returns whether a paper record should be listed on its own.
+
+     Papers that were merged list only once, under the smallest paper id of
+     the group. `mergedwith` may be a single id or a list of ids. */}}
+{{ $p := . }}
+{{ $show := true }}
+{{ if not $p }}
+	{{ $show = false }}
+{{ else if isset $p "mergedwith" }}
+	{{ $ids := $p.mergedwith }}
+	{{ if not (reflect.IsSlice $ids) }}{{ $ids = slice $ids }}{{ end }}
+	{{ range $ids }}
+		{{ if lt (int .) (int $p.pid) }}{{ $show = false }}{{ end }}
+	{{ end }}
+{{ end }}
+{{ return $show }}

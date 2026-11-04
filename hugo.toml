@@ -4,8 +4,16 @@ baseURL = "https://qcrypt.net"
 languageCode = "en"
 title = "QCrypt Conference Website"
 
-# Theme
-theme = "devfest-theme-hugo"
+# Theme and shared program templates.
+# github.com/IAQI/conference-program provides the schedule, session and
+# accepted-papers templates shared by the QCrypt, TQC and QIP websites; it is
+# vendored in _vendor/ (update with `hugo mod get -u && hugo mod vendor`).
+# Files in the site's own layouts/ override both.
+[module]
+  [[module.imports]]
+    path = "github.com/IAQI/conference-program"
+  [[module.imports]]
+    path = "devfest-theme-hugo"
 
 # Params
 enableEmoji = true

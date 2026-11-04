@@ -1,0 +1,40 @@
+{{/* List of accepted posters, from data/posters-YEAR.json.
+
+     {{< posters-accepted year=2026 >}}intro text{{< /posters-accepted >}}
+
+     Parameters:
+       year       - defaults to the year section the page is in
+       session    - read data/posters_<session>.json instead (older years)
+       parity     - "even" or "odd": only posters with an even / odd id,
+                    for poster sessions split by number
+       presenters - "false" to not emphasise presenting authors */}}
+{{ $year := .Get "year" | default (partial "program/year.html" .Page) | string }}
+{{ $presenters := ne (.Get "presenters" | default "true" | string) "false" }}
+{{ $parity := .Get "parity" }}
+{{ $dataKey := printf "posters-%s" $year }}
+{{ with .Get "session" }}{{ $dataKey = printf "posters_%s" . }}{{ end }}
+{{ $papers := index site.Data $dataKey | default slice }}
+
+<section class="papers">
+	{{/* fix as suggested in https://github.com/gohugoio/hugo/issues/6984#issuecomment-617879910 */}}
+	<div class="inner">
+		{{ .Inner }}
+	</div>
+
+	<ul class="poster-list">
+		{{ range $paper := $papers }}
+			{{ $keep := partial "program/should-display.html" $paper }}
+			{{ if and $keep (eq $parity "even") }}{{ $keep = eq (mod (int $paper.pid) 2) 0 }}{{ end }}
+			{{ if and $keep (eq $parity "odd") }}{{ $keep = eq (mod (int $paper.pid) 2) 1 }}{{ end }}
+			{{ if $keep }}
+			<li value="{{ $paper.pid }}">
+				{{ partial "paper.html" (dict "paper" $paper "currentYear" $year "presenters" $presenters "kind" "poster" "showSession" false) }}
+				{{ range partial "program/merged-papers.html" (dict "paper" $paper "papers" $papers) }}
+					merged with
+					{{ partial "paper.html" (dict "paper" . "currentYear" $year "presenters" $presenters "kind" "poster" "showSession" false) }}
+				{{ end }}
+			</li>
+			{{ end }}
+		{{ end }}
+	</ul>
+</section>
