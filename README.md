@@ -141,8 +141,10 @@ next to it):
 Raw HotCRP exports and registration lists contain personal data: keep them in
 `private_data/` (git-ignored), never in `data/`.
 
-The templates are vendored in `_vendor/`. To pick up a new version of the module:
-`hugo mod get -u github.com/IAQI/conference-program && hugo mod vendor`.
+The module version is pinned in `go.mod` / `go.sum`; Hugo downloads it at build
+time, which needs [Go](https://go.dev/dl/) installed (locally, and on Netlify via
+`GO_VERSION` in `netlify.toml`). To pick up a new version of the module, run
+`hugo mod get -u github.com/IAQI/conference-program` and commit `go.mod` and `go.sum`.
 
 
 ## More detailed explanations of the different content sections

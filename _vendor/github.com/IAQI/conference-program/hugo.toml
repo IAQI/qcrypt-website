@@ -1,6 +1,0 @@
-# Module configuration for github.com/IAQI/conference-program.
-# Sites import this module before their visual theme; see README.md.
-[module]
-  [module.hugoVersion]
-    extended = true
-    min = "0.140.0"

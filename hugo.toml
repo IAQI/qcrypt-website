@@ -6,8 +6,10 @@ title = "QCrypt Conference Website"
 
 # Theme and shared program templates.
 # github.com/IAQI/conference-program provides the schedule, session and
-# accepted-papers templates shared by the QCrypt, TQC and QIP websites; it is
-# vendored in _vendor/ (update with `hugo mod get -u && hugo mod vendor`).
+# accepted-papers templates shared by the QCrypt, TQC and QIP websites. The
+# version is pinned in go.mod / go.sum and downloaded at build time (Netlify
+# needs Go for this: GO_VERSION in netlify.toml). Update it with
+# `hugo mod get -u github.com/IAQI/conference-program`.
 # Files in the site's own layouts/ override both.
 [module]
   [[module.imports]]

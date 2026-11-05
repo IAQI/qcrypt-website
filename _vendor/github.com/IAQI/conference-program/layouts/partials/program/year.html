@@ -1,6 +1,0 @@
-{{/* Returns the conference year a page belongs to: its top-level section
-     (content/2026/... -> "2026"), or site.Params.currentYear for pages
-     outside a year section. */}}
-{{ $year := string site.Params.currentYear }}
-{{ with .Section }}{{ $year = . }}{{ end }}
-{{ return $year }}
