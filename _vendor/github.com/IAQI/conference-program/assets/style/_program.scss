@@ -41,6 +41,20 @@
     > .session:not(:first-child) .startt {
       display: none;
     }
+
+    // Below 960px (phones, also in landscape, and small tablets) parallel
+    // sessions are stacked, each with its own start time. Without this the
+    // cards stay side by side and the site's own "show every start time on
+    // small screens" rule makes the times overlap the neighbouring card.
+    @media (max-width: 959.98px) {
+      > .session {
+        flex-basis: 100%;
+      }
+
+      > .session:not(:first-child) .startt {
+        display: block;
+      }
+    }
   }
 
   .paper-list.single-paper {

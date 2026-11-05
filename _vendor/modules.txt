@@ -1,1 +1,1 @@
-# github.com/IAQI/conference-program v0.0.0-20261104234223-babc15321a3a
+# github.com/IAQI/conference-program v0.0.0-20261105145746-7050936d53c9
