@@ -27,7 +27,20 @@
   }
 }
 
+// Phones enlarge text by themselves when turned to landscape (iOS Safari);
+// keep the font size the page asks for.
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
 .schedule {
+  // Parallel sessions sit side by side, with the start time shown once, from
+  // 600px up (tablets and phones in landscape). Only narrower screens (phones
+  // in portrait) stack them, each with its own start time.
+  // The !important rules win over the sites' own "show every start time
+  // below 960px" rule, which would otherwise draw each time on top of the
+  // card to its left.
   .session-group {
     display: flex;
     flex-wrap: wrap;
@@ -35,24 +48,20 @@
 
     > .session {
       flex: 1 1 0;
-      min-width: 200px;
+      min-width: 180px;
     }
 
     > .session:not(:first-child) .startt {
-      display: none;
+      display: none !important;
     }
 
-    // Below 960px (phones, also in landscape, and small tablets) parallel
-    // sessions are stacked, each with its own start time. Without this the
-    // cards stay side by side and the site's own "show every start time on
-    // small screens" rule makes the times overlap the neighbouring card.
-    @media (max-width: 959.98px) {
+    @media (max-width: 599.98px) {
       > .session {
         flex-basis: 100%;
       }
 
       > .session:not(:first-child) .startt {
-        display: block;
+        display: block !important;
       }
     }
   }
