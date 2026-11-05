@@ -38,6 +38,7 @@
 @use "pages/with_banner";
 @use "pages/text_page";
 @use "pages/papers";
+@use "program";
 
 :root {
     --primary: #ac191c; // trying to match the red of the flowers

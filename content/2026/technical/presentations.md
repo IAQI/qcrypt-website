@@ -2,7 +2,7 @@
 title: Presentations
 year: 2026
 type: text_page
-draft: false
+draft: true # 2025 instructions copied over; not linked from the 2026 site
 menu:
     2025:
         weight: 12

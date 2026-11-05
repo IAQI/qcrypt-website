@@ -2,7 +2,7 @@
 title: "Invited Talk: ''Free-space Photonic Quantum Memory for Networking''"
 speakers:
   - arnold
-videoID : m7SYje_Ng9U
+videoId: m7SYje_Ng9U
 presentation: "/2023/sessions/slides/QCrypt2023InvitedArnold.pdf"
 draft: false
 format: invited

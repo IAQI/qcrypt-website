@@ -2,7 +2,7 @@
 title: "Tutorial Talk: ''Recent Advancement in Measurement-Device-Independent Quantum Key Distribution'' "
 speakers:
   - ma
-videoID : I_wjGYwtNPw
+videoId: I_wjGYwtNPw
 presentation: "/2023/sessions/slides/QCrypt2023TutorialMa.pdf"
 draft: false
 format: tutorial

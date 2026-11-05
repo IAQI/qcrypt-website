@@ -1,4 +1,5 @@
 ---
+draft: true # copied from 2025, not part of QCrypt 2026
 key: Pan
 name: Jian-Wei Pan
 surname: Pan

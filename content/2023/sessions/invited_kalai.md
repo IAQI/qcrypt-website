@@ -2,7 +2,7 @@
 title: "Invited Talk: Constructive Post-Quantum Reductions"
 speakers:
   - kalai
-videoID : 8VNh1dyQxsg
+videoId: 8VNh1dyQxsg
 presentation: "/2023/sessions/slides/QCrypt2023InvitedKalai.pdf"
 draft: false
 format: invited
