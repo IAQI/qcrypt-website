@@ -135,7 +135,7 @@ next to it):
 
 1. **Accepted papers and posters:** `python3 ../conference-program/scripts/sanitize_hotcrp_json.py private_data/hotcrp.json --decision accept -o data/accepted-papers-2027.json` (same for `posters-2027.json`)
 2. **Schedule:** fill in `program/program-2027.csv` (one row per slot; see [program/program-2026.csv](program/program-2026.csv)), then `python3 ../conference-program/scripts/generate_schedule.py --year 2027 --program program/program-2027.csv`
-3. **Presenters:** `python3 ../conference-program/scripts/mark_presenters.py --year 2027 --registrations private_data/<registration export>`
+3. **Presenters:** `python3 ../conference-program/scripts/quantumdb_presenters.py --venue qcrypt --year 2027` (from QuantumDB, as for 2026), or `python3 ../conference-program/scripts/mark_presenters.py --year 2027 --registrations private_data/<registration export>`
 4. **Videos:** `python3 ../conference-program/scripts/fetch_videos.py --year 2027 --playlist <YouTube playlist URL>`
 
 Raw HotCRP exports and registration lists contain personal data: keep them in
