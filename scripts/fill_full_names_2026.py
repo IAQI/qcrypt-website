@@ -16,8 +16,8 @@ An author is only updated if the family name and initial match the CSV; everythi
 could not be matched is reported and left unchanged.
 
 Usage:
-    python3 static/python-scripts/fill_full_names_2026.py --dry-run
-    python3 static/python-scripts/fill_full_names_2026.py
+    python3 scripts/fill_full_names_2026.py --dry-run
+    python3 scripts/fill_full_names_2026.py
 """
 
 import argparse
@@ -28,7 +28,7 @@ import unicodedata
 from collections import defaultdict
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[2]
+ROOT = Path(__file__).resolve().parents[1]
 CSV_FILE = ROOT / "private_data" / "qcrypt2026-authors.csv"
 JSON_FILES = [ROOT / "data" / "accepted-papers-2026.json", ROOT / "data" / "posters-2026.json"]
 SESSIONS_DIR = ROOT / "content" / "2026" / "sessions" / "contributed"

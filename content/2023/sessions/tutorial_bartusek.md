@@ -2,7 +2,7 @@
 title: "Tutorial Talk: ''Cryptography with Certified Deletion''"
 speakers:
   - bartusek
-videoID : sQ4wcDwcbCA
+videoId: sQ4wcDwcbCA
 presentation: "/2023/sessions/slides/QCrypt2023TutorialBartusek.pdf"
 draft: false
 format: tutorial

@@ -8,7 +8,7 @@ speakers:
 chair: Davide Rusca
 presentation: null
 draft: false
-videoId: MTYwfLCgfjQ
+videoId: null
 ---
 
 ## Biography
