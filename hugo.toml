@@ -4,18 +4,16 @@ baseURL = "https://qcrypt.net"
 languageCode = "en"
 title = "QCrypt Conference Website"
 
-# Theme and shared program templates.
-# github.com/IAQI/conference-program provides the schedule, session and
-# accepted-papers templates shared by the QCrypt, TQC and QIP websites. The
-# version is pinned in go.mod / go.sum and downloaded at build time (Netlify
-# needs Go for this: GO_VERSION in netlify.toml). Update it with
-# `hugo mod get -u github.com/IAQI/conference-program`.
-# Files in the site's own layouts/ override both.
+# Theme: github.com/IAQI/conference-theme, shared by the QCrypt, TQC and QIP
+# websites (layouts, styles, schedule and accepted-papers templates, scripts).
+# The version is pinned in go.mod / go.sum and downloaded at build time
+# (Netlify needs Go for this: GO_VERSION in netlify.toml). Update it with
+# `hugo mod get -u github.com/IAQI/conference-theme`.
+# This site's own files in layouts/, assets/, i18n/ override the module's;
+# this year's colours are in assets/style/theme-YEAR.scss.
 [module]
   [[module.imports]]
-    path = "github.com/IAQI/conference-program"
-  [[module.imports]]
-    path = "devfest-theme-hugo"
+    path = "github.com/IAQI/conference-theme"
 
 # Params
 enableEmoji = true
@@ -48,32 +46,11 @@ enableMissingTranslationPlaceholders = true
     favicon16 = "/favicon-16x16.png"
     manifest = "/manifest.json"
     safariPinnedTab = "/safari-pinned-tab.svg"
- [params.style]
-            [params.style.sass]
-              path = "C:\\dart-sass\\bin\\src\\dart.bat"
-
-[params.2023]
-  city = "Washington DC, USA"
-  timeanddate_cityid = 263
-  themeColor = "#ac191c"
-  [params.2023.logos]
-    jumbo = "/images/2023/QuCrC23_Logo.png"
-    header = "/images/2023/QuCrC23_Logo.png"
-    banner = "/images/2023/banner-2023.jpeg"
-
-[params.2024]
-  city = "Vigo, Spain"
-  timeanddate_cityid = 4529
-  themeColor = "#0099cc"
-  [params.2024.logos]
-    jumbo = "/images/2024/QCrypt_2024_logo_final.png"
-    header = "/images/2024/QCrypt_2024_logo_final.png"
-    banner = "/images/2024/banner-2024.jpg"
 
 [params.2025]
   city = "Sanya, China"
   timeanddate_cityid = 33
-  themeColor = "#4775ff"
+  themeColor = "#083a7c" # same as --primary in assets/style/theme-2025.scss
   [params.2025.logos]
     jumbo = "/images/2025/QCrypt_2025_logo.png"
     header = "/images/2025/QCrypt_2025_logo2.png"
@@ -100,53 +77,6 @@ enableMissingTranslationPlaceholders = true
       force = true 
 
 [menu]
-  [[menu.2023]]
-    name = "Home"
-    weight = 10
-    identifier = "home"
-    pageRef = '/2023'
-  [[menu.2023]]
-    name = "Technical Program"
-    weight = 20
-    identifier = "technical-program"
-  [[menu.2023]]
-    name = "Attend"
-    weight = 30
-    identifier = "attend"
-  [[menu.2023]]
-    name = "Sponsors"
-    weight = 40
-    identifier = "sponsors"
-    pageRef = "/2023/partners"
-  [[menu.2023]]
-    name = "Committees"
-    weight = 50
-    identifier = "committees"
-    pageRef = "/2023/team"
-
-  [[menu.2024]]
-    name = "Home"
-    weight = 10
-    identifier = "home"
-    pageRef = '/2024'
-  [[menu.2024]]
-    name = "Technical Program"
-    weight = 20
-    identifier = "technical-program"
-  [[menu.2024]]
-    name = "Attend"
-    weight = 30
-    identifier = "attend"
-  [[menu.2024]]
-    name = "Sponsors"
-    weight = 40
-    identifier = "sponsors"
-    pageRef = "/2024/partners"
-  [[menu.2024]]
-    name = "Committees"
-    weight = 50
-    identifier = "committees"
-    pageRef = "/2024/team"
 
   [[menu.2025]]
     name = "Home"

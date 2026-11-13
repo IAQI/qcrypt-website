@@ -1,0 +1,108 @@
+// The shared theme (github.com/IAQI/conference-theme), then this year's colours and extras.
+@use "theme";
+
+:root {
+    --primary:#ac191c; //#083a7c//#44bb44 // #4775ff
+}  
+
+#registration  ~ table td,
+#registration  ~ table th {
+    padding: 6.5px;
+  }
+
+.partner-sponsor {
+    // for testing use
+    @extend .partner-gold;
+}
+
+.partner-partners {
+    // for testing use
+    @extend .partner-gold;
+}
+
+.jumbo #jumbo-overlay.show{
+    opacity: calc(var(--jumbo-overlay-opacity)/2);
+}
+
+ul.heado {
+list-style: none;
+padding: 0;
+margin: 0;
+display: flex;
+flex-wrap: wrap;
+
+& > li {
+    margin: 1rem;
+    flex: 1 0 300px;
+    max-width: 450px;
+}
+}
+
+.tag-lunch,
+.tag-dinner,
+.tag-poster,
+.tag-break,
+.tag-award,
+.tag-welcome,
+.tag-closing,
+.tag-reception,
+.tag-banquet,
+.tag-group{
+    background-image: none !important;
+    pointer-events: none !important;
+}
+
+.tag-lunch > a,
+.tag-dinner > a,
+.tag-break > a,
+.tag-poster > a,
+.tag-award > a,
+.tag-welcome > a,
+.tag-closing > a,
+.tag-banquet > a,
+.tag-group > a{
+    box-shadow: none !important;
+}
+
+.tag-banquet h4,
+.tag-dinner h4,
+.tag-lunch h4,
+.tag-break h4{
+    color: inherit !important;
+    text-shadow: none !important;
+}
+
+
+.tag-group,
+.tag-poster{
+    background-color: #fff2ae;
+}
+
+.tag-closing,
+.tag-welcome{
+    background-color: #DDEBF7;
+}
+
+.tag-banquet,
+.tag-dinner,
+.tag-lunch,
+.tag-break{
+    background-color: #9BC2E6;
+}
+
+.type-contributed {
+  --duration: '20' !important;
+}
+
+.type-invited {
+  --duration: '45' !important;
+}
+
+.type-industry {
+  --duration: '100' !important;
+}
+
+
+[class*="2026"] .poster-list>li::marker{
+    content: "#" attr(value) ".";
+}
