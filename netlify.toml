@@ -46,7 +46,7 @@ TZ = "Europe/Amsterdam"
     status = 301
     force = true
 [[redirects]]
-    from = "/2015 "
+    from = "/2015"
     to = "https://qcrypt.iaqi.org/2015"
     status = 301
     force = true
@@ -83,6 +83,17 @@ TZ = "Europe/Amsterdam"
 [[redirects]]
     from = "/2022"
     to = "https://qcrypt.iaqi.org/2022"
+    status = 301
+    force = true
+# QCrypt 2023 and 2024 are archived on qcrypt.iaqi.org, with the same page paths.
+[[redirects]]
+    from = "/2023/*"
+    to = "https://qcrypt.iaqi.org/2023/:splat"
+    status = 301
+    force = true
+[[redirects]]
+    from = "/2024/*"
+    to = "https://qcrypt.iaqi.org/2024/:splat"
     status = 301
     force = true
 [[redirects]]
