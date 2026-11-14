@@ -1,14 +1,16 @@
 ---
-title: "Invited Talk: Quantum communication with ultrafast time-Bin encoding"
+title: 'Invited Talk: Quantum communication with ultrafast time-Bin encoding'
 format: invited
 type: sessions
 year: 2026
 speakers:
-    - England
+- England
 chair: None
 videoId: null
 presentation: null
 draft: false
+tags:
+- invited
 ---
 
 ## Biography

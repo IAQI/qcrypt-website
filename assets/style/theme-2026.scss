@@ -1,0 +1,64 @@
+// The shared theme (github.com/IAQI/conference-theme), then this year's colours and extras.
+@use "theme";
+
+:root {
+    --primary:#ac191c; //#083a7c//#44bb44 // #4775ff
+}  
+
+#registration  ~ table td,
+#registration  ~ table th {
+    padding: 6.5px;
+  }
+
+.partner-sponsor {
+    // for testing use
+    @extend .partner-gold;
+}
+
+.partner-partners {
+    // for testing use
+    @extend .partner-gold;
+}
+
+.jumbo #jumbo-overlay.show{
+    opacity: calc(var(--jumbo-overlay-opacity)/2);
+}
+
+ul.heado {
+list-style: none;
+padding: 0;
+margin: 0;
+display: flex;
+flex-wrap: wrap;
+
+& > li {
+    margin: 1rem;
+    flex: 1 0 300px;
+    max-width: 450px;
+}
+}
+
+/* Schedule colours (see the shared theme's _root.scss for all of them) */
+:root {
+    --sched-break: #9BC2E6;
+    --sched-meal: #9BC2E6;
+    --sched-poster: #fff2ae;
+    --sched-plenary: #DDEBF7;
+}
+
+.type-contributed {
+  --duration: '20' !important;
+}
+
+.type-invited {
+  --duration: '45' !important;
+}
+
+.type-industry {
+  --duration: '100' !important;
+}
+
+
+[class*="2026"] .poster-list>li::marker{
+    content: "#" attr(value) ".";
+}

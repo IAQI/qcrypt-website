@@ -1,9 +1,5 @@
 ---
 title: Home
-menu:
-    main:
-        weight: 1
-        identifier: home-2026
 year: 2026
 type: home
 layout: home

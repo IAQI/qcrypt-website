@@ -12,12 +12,6 @@ menu:
         parent: attend
 ---
 
-| Day                 | Time    | Main Activity |
-| :------------------- | :------------ | :-------------------------- |
-| Mon                     | Until June 28, 2026 | Until August 9, 2026             |
-| Student Registration | CAD 755        | CAD 910                      |
-| Regular Registration | CAD 995         | CAD 1145                       |
-
 
 <!-- _Please note that minor adjustments may occur as we approach the event date_ -->
 

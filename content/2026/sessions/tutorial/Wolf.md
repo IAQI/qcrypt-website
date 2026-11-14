@@ -1,13 +1,15 @@
 ---
-title: "Tutorial Talk: Security Proofs for Quantum Key Distribution"
+title: 'Tutorial Talk: Security Proofs for Quantum Key Distribution'
 format: tutorial
 type: sessions
 year: 2026
 speakers:
-    - Wolf
+- Wolf
 chair: None
 presentation: null
 draft: false
+tags:
+- tutorial
 ---
 
 ## Biography

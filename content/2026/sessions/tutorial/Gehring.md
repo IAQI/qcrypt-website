@@ -1,13 +1,15 @@
 ---
-title: "Tutorial Talk: Continuous-Variable Quantum Key Distribution"
+title: 'Tutorial Talk: Continuous-Variable Quantum Key Distribution'
 format: tutorial
 type: sessions
 year: 2026
 speakers:
-    - Gehring
+- Gehring
 chair: None
 presentation: null
 draft: false
+tags:
+- tutorial
 ---
 
 ## Biography

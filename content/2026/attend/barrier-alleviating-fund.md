@@ -5,9 +5,8 @@ draft: false
 type: text_page
 menu:
     2026:
-        weight: 60
-        identifier: barrier-alleviating-fund
         parent: attend
+        weight: 30
 ---
 
 ## QCrypt 2026 Barrier Alleviating Fund 

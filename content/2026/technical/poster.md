@@ -5,9 +5,9 @@ year: 2026
 draft: true
 type: text_page
 menu:
-    2025:
-        weight: 10
-        parent: technical-program
+    2026:
+        parent: program
+        weight: 41
 ---
 
 This page will be updated later.

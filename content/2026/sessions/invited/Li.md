@@ -1,14 +1,16 @@
 ---
-title: "Invited Talk: Free-Space Twin-Field Quantum Key Distribution"
+title: 'Invited Talk: Free-Space Twin-Field Quantum Key Distribution'
 format: invited
 type: sessions
 year: 2026
 speakers:
-    - Li
+- Li
 chair: None
 videoId: null
 presentation: null
 draft: false
+tags:
+- invited
 ---
 
 ## Biography
