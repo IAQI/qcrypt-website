@@ -4,6 +4,6 @@ format: break
 type: sessions
 year: 2026
 tags:
-- break
+- logistics
 draft: false
 ---

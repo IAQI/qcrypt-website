@@ -5,9 +5,8 @@ draft: false
 type: text_page
 menu:
     2026:
-        weight: 11
-        identifier: call
-        parent: technical-program
+        parent: program
+        weight: 30
 ---
 
 <!--

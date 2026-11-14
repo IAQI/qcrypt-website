@@ -38,54 +38,12 @@ flex-wrap: wrap;
 }
 }
 
-.tag-lunch,
-.tag-dinner,
-.tag-poster,
-.tag-break,
-.tag-welcome,
-.tag-closing,
-.tag-reception,
-.tag-banquet,
-.tag-group{
-    background-image: none !important;
-    pointer-events: none !important;
-}
-
-.tag-lunch > a,
-.tag-dinner > a,
-.tag-break > a,
-.tag-poster > a,
-.tag-welcome > a,
-.tag-closing > a,
-.tag-banquet > a,
-.tag-group > a{
-    box-shadow: none !important;
-}
-
-.tag-banquet h4,
-.tag-dinner h4,
-.tag-lunch h4,
-.tag-break h4{
-    color: inherit !important;
-    text-shadow: none !important;
-}
-
-
-.tag-group,
-.tag-poster{
-    background-color: #fff2ae;
-}
-
-.tag-closing,
-.tag-welcome{
-    background-color: #DDEBF7;
-}
-
-.tag-banquet,
-.tag-dinner,
-.tag-lunch,
-.tag-break{
-    background-color: #9BC2E6;
+/* Schedule colours (see the shared theme's _root.scss for all of them) */
+:root {
+    --sched-break: #9BC2E6;
+    --sched-meal: #9BC2E6;
+    --sched-poster: #fff2ae;
+    --sched-plenary: #DDEBF7;
 }
 
 .type-contributed {

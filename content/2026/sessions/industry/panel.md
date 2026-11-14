@@ -9,4 +9,6 @@ speakers:
 - Mohageg
 - Montminy
 draft: false
+tags:
+- plenary
 ---

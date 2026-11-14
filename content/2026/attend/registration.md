@@ -6,9 +6,8 @@ draft: false
 type: text_page
 menu:
     2026:
-        weight: 5
-        identifier: registration
         parent: attend
+        weight: 10
 ---
 
 ## Online registration for QCrypt 2026 is now CLOSED 

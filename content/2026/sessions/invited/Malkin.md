@@ -1,14 +1,16 @@
 ---
-title: "Invited Talk: Private Proofs of When and Where"
+title: 'Invited Talk: Private Proofs of When and Where'
 format: invited
 type: sessions
 year: 2026
 speakers:
-    - Malkin
+- Malkin
 chair: None
 videoId: null
 presentation: null
 draft: false
+tags:
+- invited
 ---
 
 ## Biography

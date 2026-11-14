@@ -102,15 +102,17 @@ enableMissingTranslationPlaceholders = true
     identifier = "committees"
     pageRef = "/2025/team"
 
-    [[menu.2026]]
+  # The shared menu structure (conference-theme docs/website-guide.md, "Menus"):
+  # Home | Program | Schedule | Attend | Sponsors | Committees | About
+  [[menu.2026]]
     name = "Home"
     weight = 10
     identifier = "home"
     pageRef = '/2026'
   [[menu.2026]]
-    name = "Technical Program"
+    name = "Program"
     weight = 20
-    identifier = "technical-program"
+    identifier = "program"
   [[menu.2026]]
     name = "Attend"
     weight = 30
@@ -126,26 +128,34 @@ enableMissingTranslationPlaceholders = true
     identifier = "committees"
     pageRef = "/2026/team"
   [[menu.2026]]
+    name = "About"
+    weight = 60
+    identifier = "about"
+  [[menu.2026]]
     name = "Posters"
-    weight = 70
+    parent = "program"
+    weight = 12
     identifier = "poster"
     pageRef = "/2026/poster"
   [[menu.2026]]
-    name = "2027 & 2028"
-    weight = 80
-    identifier = "2027"
-    pageRef = "/2026/2027"
-  [[menu.2026]]
     name = "Photos & Prizes"
-    weight = 90
+    parent = "attend"
+    weight = 60
     identifier = "pictures"
     pageRef = "/2026/photos_prizes"
   [[menu.2026]]
+    name = "2027 & 2028"
+    parent = "about"
+    weight = 30
+    identifier = "2027"
+    pageRef = "/2026/2027"
+  [[menu.2026]]
     name = "About the Logo"
-    weight = 100
+    parent = "about"
+    weight = 40
     identifier = "logo"
     pageRef = "/2026/logo"
-  
+
 [languages]
 [languages.en]
     weight = 1

@@ -4,6 +4,6 @@ format: social
 type: sessions
 year: 2026
 tags:
-- banquet
+- social
 draft: false
 ---

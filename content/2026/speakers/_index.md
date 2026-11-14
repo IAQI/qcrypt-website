@@ -6,9 +6,8 @@ type: speakers
 layout: list_with_header
 menu:
     2026:
-        weight: 40
-        identifier: speakers
-        parent: technical-program
+        parent: program
+        weight: 20
 ---
 <!--## Stay tuned — more details on confirmed speakers will be announced soon. -->
 <!--<ul class="heado">

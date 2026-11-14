@@ -5,9 +5,8 @@ draft: false
 type: text_page
 menu:
     2026:
-        weight: 50
-        identifier: practical-information
         parent: attend
+        weight: 20
 ---
 
 ## Travel information

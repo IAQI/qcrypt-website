@@ -6,9 +6,8 @@ draft: false
 horizontal: false
 menu:
     2026:
-        weight: 2
+        weight: 25
         identifier: schedule
-        parent: attend
 ---
 
 <!-- The schedule above is generated from data/schedule-2026.yml.
