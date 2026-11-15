@@ -65,6 +65,15 @@ enableMissingTranslationPlaceholders = true
     header = "/images/2026/QCrypt2026-Logo2.png"
     banner = "/images/2026/Ottawa-Banner.jpeg"
 
+[params.2027]
+  city = "Vienna, Austria"
+  timeanddate_cityid = 259
+  themeColor = "#ac191c" # same as --primary in assets/style/theme-2027.scss; TODO: 2027 colour
+  [params.2027.logos] # TODO: 2027 logos and banner in static/images/2027/
+    jumbo = "/images/2026/QCrypt2026-Logo.png"
+    header = "/images/2026/QCrypt2026-Logo2.png"
+    banner = "/images/2026/background_2026.jpg"
+
 [params.logos]
     footer = "/images/logos/netlify-color-accent.svg"
     footer_link = "https://www.netlify.com"
@@ -156,6 +165,46 @@ enableMissingTranslationPlaceholders = true
     identifier = "logo"
     pageRef = "/2026/logo"
 
+  [[menu.2027]]
+    name = "Home"
+    weight = 10
+    identifier = "home"
+    pageRef = '/2027'
+  [[menu.2027]]
+    name = "Program"
+    weight = 20
+    identifier = "program"
+  [[menu.2027]]
+    name = "Attend"
+    weight = 30
+    identifier = "attend"
+  [[menu.2027]]
+    name = "Sponsors"
+    weight = 40
+    identifier = "sponsors"
+    pageRef = "/2027/partners"
+  [[menu.2027]]
+    name = "Committees"
+    weight = 50
+    identifier = "committees"
+    pageRef = "/2027/team"
+  [[menu.2027]]
+    name = "About"
+    weight = 60
+    identifier = "about"
+  [[menu.2027]]
+    name = "QCrypt 2028"
+    parent = "about"
+    weight = 30
+    identifier = "2028"
+    pageRef = "/2027/2028"
+  [[menu.2027]]
+    name = "About the Logo"
+    parent = "about"
+    weight = 40
+    identifier = "logo"
+    pageRef = "/2027/logo"
+
 [languages]
 [languages.en]
     weight = 1
@@ -190,5 +239,3 @@ unsafe = true
     [privacy.youtube]
         disable = true
         privacyEnhanced = true
-
-         
