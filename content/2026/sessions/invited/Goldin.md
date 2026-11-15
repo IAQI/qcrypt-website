@@ -1,14 +1,16 @@
 ---
-title: "Invited Talk: Less is More: On Copy Complexity in Quantum Cryptography"
+title: 'Invited Talk: Less is More: On Copy Complexity in Quantum Cryptography'
 format: invited
 type: sessions
 year: 2026
 speakers:
-    - Goldin
+- Goldin
 chair: None
 videoId: null
 presentation: null
 draft: false
+tags:
+- invited
 ---
 
 ## Biography

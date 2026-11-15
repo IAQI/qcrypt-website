@@ -1,0 +1,6 @@
+# The names of this conference's charter and history pages (footer).
+[footer_charter]
+other = "QCrypt Charter"
+
+[footer_history]
+other = "QCrypt History"

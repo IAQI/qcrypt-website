@@ -1,9 +1,8 @@
 ---
 title: Code of Conduct
 year: 2026
-# no need in menu, access from Registration & footer
 
-draft: false
+draft: true # duplicate of /2026/code-of-conduct/ (which redirects this address)
 type: no_toc
 
 ---

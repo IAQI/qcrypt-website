@@ -1,0 +1,7 @@
+# Manual corrections for fetch_videos.py (see README.md); these win over the
+# automatic title matching every time data/videos-2026.yml is regenerated.
+papers:
+  # #65 was a remote talk; only its Q&A was recorded, uploaded twice with the
+  # same content. JmPg2_T-0mQ carries the description of #104 by mistake, so
+  # link the upload with the right authors (as QuantumDB does).
+  "65": {id: LvDLBcnz_gQ, title: "Q&A  Chip based Long distance Twin field Quantum Key Distribution Networks"}

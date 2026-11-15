@@ -2,6 +2,8 @@
 title: Code of Conduct
 year: 2025
 # no need in menu, access from Registration & footer
+aliases:
+  - /2025/code-of-conduct/   # the footer links here
 
 draft: false
 type: no_toc

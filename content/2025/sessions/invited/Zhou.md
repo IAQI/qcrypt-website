@@ -6,7 +6,7 @@ year: 2025
 speakers:
     - Zhou
 chair: Giuseppe Vallone
-videoId: SeicA3Xb-e0
+videoId: null
 presentation: null
 draft: false
 ---

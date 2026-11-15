@@ -6,7 +6,7 @@ year: 2025
 speakers:
     - Fedorov
 chair: Thomas Hahn
-videoId: 02NLvnu0GFs
+videoId: null
 presentation: null
 draft: false
 ---

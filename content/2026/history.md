@@ -3,7 +3,10 @@ title: QCrypt History
 year: 2026
 draft: false
 type: text_page
-# no menu entry necessary, as the charter, history and code of conduct are accessible from the links in the footer
+menu:
+    2026:
+        parent: about
+        weight: 20
 ---
 
 QCRYPT was founded by Matthias Christandl and Stephanie Wehner, and the initial members of its steering committee were instrumental in its early development. The members of the steering committee continue to give their time to provide an excellent conference for the community.

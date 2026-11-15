@@ -6,7 +6,7 @@ year: 2025
 speakers:
     - Murta
 chair: Ian George
-videoId: wZqprfTs_nM
+videoId: null
 presentation: null
 draft: false
 ---

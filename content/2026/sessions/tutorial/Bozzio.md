@@ -1,13 +1,15 @@
 ---
-title: "Tutorial Talk: Quantum cryptography beyond QKD: advances and practical challenges"
+title: 'Tutorial Talk: Quantum cryptography beyond QKD: advances and practical challenges'
 format: tutorial
 type: sessions
 year: 2026
 speakers:
-    - Bozzio
+- Bozzio
 chair: None
 presentation: null
 draft: false
+tags:
+- tutorial
 ---
 
 ## Biography

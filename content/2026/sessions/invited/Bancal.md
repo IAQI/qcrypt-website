@@ -1,14 +1,16 @@
 ---
-title: "Invited Talk: Quantum statistics in the minimal Bell scenario"
+title: 'Invited Talk: Quantum statistics in the minimal Bell scenario'
 format: invited
 type: sessions
 year: 2026
 speakers:
-    - Bancal
+- Bancal
 chair: None
 videoId: null
 presentation: null
 draft: false
+tags:
+- invited
 ---
 
 ## Biography

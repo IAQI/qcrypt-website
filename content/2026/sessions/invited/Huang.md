@@ -1,14 +1,16 @@
 ---
-title: "Invited Talk: On obfuscating quantum computation"
+title: 'Invited Talk: On obfuscating quantum computation'
 format: invited
 type: sessions
 year: 2026
 speakers:
-    - Huang
+- Huang
 chair: None
 videoId: null
 presentation: null
 draft: false
+tags:
+- invited
 ---
 
 ## Biography

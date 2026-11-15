@@ -1,14 +1,16 @@
 ---
-title: "Relativistic Position Verification with Coherent States"
+title: Relativistic Position Verification with Coherent States
 format: invited
 type: sessions
 year: 2026
 speakers:
-    - GuanJieFanYuan
+- GuanJieFanYuan
 chair: None
 videoId: null
 presentation: null
 draft: false
+tags:
+- invited
 ---
 
 ## Biography

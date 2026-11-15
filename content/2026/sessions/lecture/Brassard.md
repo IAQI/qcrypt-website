@@ -7,7 +7,7 @@ speakers:
 chair: Qiang Zhang
 videoId: null
 presentation: null
-draft: false
+draft: true # copied from 2025, not part of QCrypt 2026
 ---
 
 ## Biography

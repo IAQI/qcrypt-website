@@ -3,10 +3,7 @@ title: Pictures
 year: 2026
 draft: false
 type: no_toc
-menu:
-    2025:
-        weight: 50
-        parent: attend
+# not in a menu: 2026 links its photos from "Photos & Prizes"
 ---
 
 <div style="font-size: xx-large;">

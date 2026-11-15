@@ -1,0 +1,7 @@
+# Manual corrections for fetch_videos.py (see README.md); these win over the
+# automatic title matching every time data/videos-2025.yml is regenerated.
+papers:
+  # talk given under a different title by the first author
+  "26": {id: lZlPoEpRLF0, presenter: Shanfeng Shao, title: "High Key Rate Intercity Quantum Key Distribution without Optical Reference"}
+  # one talk covering this paper and its companion work
+  "122": {id: ychHTONQ9fI, title: "Unclonable Cryptography with Unbounded Collusion & Impossibility of Hyperefficient Shadow Tomography"}

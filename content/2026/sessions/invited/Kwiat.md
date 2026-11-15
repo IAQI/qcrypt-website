@@ -1,14 +1,16 @@
 ---
-title: "Invited Talk: Quantum communication takes to the skies"
+title: 'Invited Talk: Quantum communication takes to the skies'
 format: invited
 type: sessions
 year: 2026
 speakers:
-    - Kwiat
+- Kwiat
 chair: None
 videoId: null
 presentation: null
 draft: false
+tags:
+- invited
 ---
 
 ## Biography

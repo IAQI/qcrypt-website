@@ -1,13 +1,15 @@
 ---
-title: "Tutorial Talk: Self-testing in quantum cryptography"
+title: 'Tutorial Talk: Self-testing in quantum cryptography'
 format: tutorial
 type: sessions
 year: 2026
 speakers:
-    - Supic
+- Supic
 chair: None
 presentation: null
 draft: false
+tags:
+- tutorial
 ---
 
 ## Biography

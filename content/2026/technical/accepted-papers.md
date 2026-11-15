@@ -5,9 +5,8 @@ type: text_page
 draft: false
 menu:
     2026:
-        weight: 20
-        identifier: accepted-papers
-        parent: technical-program
+        parent: program
+        weight: 10
 ---
 
 ## List of Accepted Talks

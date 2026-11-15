@@ -6,7 +6,7 @@ year: 2025
 speakers:
     - Nehoran
 chair: Kirill Fedorov
-videoId: dNzOyUlGKpA
+videoId: null
 presentation: null
 draft: false
 ---
