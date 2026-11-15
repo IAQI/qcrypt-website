@@ -9,14 +9,6 @@ menu:
         weight: 30
 ---
 
-<!--
-## Poster
-Our poster is now available! Please <a href="/poster">download and print it yourself!</a>.
-
-<a href="/poster">
-  <img height=300 id="dark_bg" src="/images/poster/QCryptPoster.png"/>
-</a>
--->
 <!--| <strike> April 2025 </strike>| <strong><a href="https://easychair.org/conferences/?conf=qcrypt2025" target="_blank">TALK/POSTER SUBMISSION CLOSING SOON</a></strong>|-->
 
 ## Key Dates QCrypt 2026
