@@ -68,11 +68,11 @@ enableMissingTranslationPlaceholders = true
 [params.2027]
   city = "Vienna, Austria"
   timeanddate_cityid = 259
-  themeColor = "#ac191c" # same as --primary in assets/style/theme-2027.scss; TODO: 2027 colour
-  [params.2027.logos] # TODO: 2027 logos and banner in static/images/2027/
-    jumbo = "/images/2026/QCrypt2026-Logo.png"
-    header = "/images/2026/QCrypt2026-Logo2.png"
-    banner = "/images/2026/background_2026.jpg"
+  themeColor = "#660038" # stand-in (IAQI maroon); TODO: same as --primary in theme-2027.scss
+  [params.2027.logos] # TODO: the 2027 images in static/images/2027/ (formats: website guide, "Stand-in images")
+    jumbo = "/images/placeholder/background.svg"
+    header = "/images/placeholder/header-logo.svg"
+    banner = "/images/placeholder/banner.svg"
 
 [params.logos]
     footer = "/images/logos/netlify-color-accent.svg"

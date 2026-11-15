@@ -7,9 +7,9 @@ draft: true
 ---
 
 <!-- JUMBO -->
-<!-- TODO: replace the 2026 placeholder images with the QCrypt 2027 background and logo in static/images/2027/ -->
+<!-- TODO: replace the IAQI stand-ins with the QCrypt 2027 background and logo in static/images/2027/ -->
 
-{{% jumbo img="/images/2026/background_2026.jpg" imgLabel="QCrypt 2027 background" logo="/images/2026/QCrypt2026-Logo.png" %}}
+{{% jumbo img="/images/placeholder/background.svg" imgLabel="QCrypt 2027 background" logo="/images/placeholder/logo.svg" %}}
 
 ## 23–27 August 2027
 ## Vienna, Austria
