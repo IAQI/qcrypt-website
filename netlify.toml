@@ -1,6 +1,6 @@
 [build.environment]
 GO_VERSION = "1.27.4" # Hugo downloads the conference-theme module with Go
-HUGO_VERSION = "0.169.0" # the only place; it applies to every build context
+HUGO_VERSION = "0.170.0" # the only place; it applies to every build context
 DART_SASS_VERSION = "1.108.2"
 TZ = "Europe/Amsterdam"
 
@@ -11,7 +11,7 @@ TZ = "Europe/Amsterdam"
     tar -xf dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz && \
     rm dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz && \
     export PATH=/opt/build/repo/dart-sass:$PATH && \
-    hugo --gc --minify \
+    { hugo version; hugo --gc --minify --logLevel info > hugo-build.log 2>&1; echo "exit $?" >> hugo-build.log; } ; mkdir -p public && cp hugo-build.log public/hugo-build.log \
     """
 
 [context.production.environment]
