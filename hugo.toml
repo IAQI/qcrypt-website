@@ -4,6 +4,17 @@ baseURL = "https://qcrypt.net"
 languageCode = "en"
 title = "QCrypt Conference Website"
 
+# These must stay above the first [table]: below [module] they would be
+# module settings and ignored (robots.txt was missing because of that).
+enableEmoji = true
+enableRobotsTXT = true
+enableMissingTranslationPlaceholders = true
+
+# The home page also renders /llms.txt and /llms-full.txt for AI agents
+# (output formats defined by the theme; see its docs/website-guide.md).
+[outputs]
+  home = ["html", "rss", "llms", "llmsfull"]
+
 # Theme: github.com/IAQI/conference-theme, shared by the QCrypt, TQC and QIP
 # websites (layouts, styles, schedule and accepted-papers templates, scripts).
 # The version is pinned in go.mod / go.sum and downloaded at build time
@@ -14,11 +25,6 @@ title = "QCrypt Conference Website"
 [module]
   [[module.imports]]
     path = "github.com/IAQI/conference-theme"
-
-# Params
-enableEmoji = true
-enableRobotsTXT = true
-enableMissingTranslationPlaceholders = true
 
 # Google Analytics are currently disabled, 
 # using it would officially require a cookie banner at least in the EU, and we don't have one...
@@ -46,7 +52,12 @@ enableMissingTranslationPlaceholders = true
     favicon16 = "/favicon-16x16.png"
     manifest = "/manifest.json"
     safariPinnedTab = "/safari-pinned-tab.svg"
+    # for AI agents (llms.txt, JSON-LD): where 2011-2024 are archived
+    archiveUrl = "https://qcrypt.iaqi.org"
 
+# [params.YEAR.event]: facts of an edition for search engines and AI agents
+# (JSON-LD, /llms.txt, /YEAR/schedule/program.json). All keys optional; see the
+# theme's docs/website-guide.md, "Information for AI agents".
 [params.2025]
   city = "Sanya, China"
   timeanddate_cityid = 33
@@ -55,6 +66,14 @@ enableMissingTranslationPlaceholders = true
     jumbo = "/images/2025/QCrypt_2025_logo.png"
     header = "/images/2025/QCrypt_2025_logo2.png"
     banner = "/images/2025/banner_2025.jpg"
+  [params.2025.event]
+    name = "QCrypt 2025"
+    startDate = "2025-08-25"
+    endDate = "2025-08-29"
+    timezone = "Asia/Shanghai"
+    venue = "Mangrove Tree Resort World Sanya Bay"
+    address = "Sanya, Hainan, China"
+    attendanceMode = "offline"
 
 [params.2026]
   city = "Ottawa, Canada"
@@ -64,6 +83,14 @@ enableMissingTranslationPlaceholders = true
     jumbo = "/images/2026/QCrypt2026-Logo.png"
     header = "/images/2026/QCrypt2026-Logo2.png"
     banner = "/images/2026/Ottawa-Banner.jpeg"
+  [params.2026.event]
+    name = "QCrypt 2026"
+    startDate = "2026-08-24"
+    endDate = "2026-08-28"
+    timezone = "America/Toronto"
+    venue = "Learning Crossroads (CRX), University of Ottawa"
+    address = "100 Louis-Pasteur Private, Ottawa, ON K1N 9N3, Canada"
+    attendanceMode = "offline"
 
 [params.2027]
   city = "Vienna, Austria"

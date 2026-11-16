@@ -4,6 +4,8 @@ year: 2025
 type: schedule
 draft: false
 horizontal: false
+# program.json, papers.json and program.ics next to this page (for calendars and AI agents)
+outputs: [html, rss, programjson, papersjson, programics]
 suggestion: "Please note that minor adjustments may occur as we approach the event date"
 menu:
     2025:
