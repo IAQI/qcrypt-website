@@ -1,7 +1,8 @@
 [build.environment]
-GO_VERSION = "1.23.4" # Hugo downloads the conference-theme module with Go
-HUGO_VERSION = "0.140.0"
-DART_SASS_VERSION = "1.83.0"
+GO_VERSION = "1.27.4" # Hugo downloads the conference-theme module with Go
+HUGO_VERSION = "0.170.0" # the only place; it applies to every build context
+DART_SASS_VERSION = "1.108.2"
+NODE_VERSION = "24" # Hugo runs PostCSS with node --permission (Node 22.13 or later)
 TZ = "Europe/Amsterdam"
 
 [build]
@@ -15,15 +16,8 @@ TZ = "Europe/Amsterdam"
     """
 
 [context.production.environment]
-  HUGO_VERSION = "0.140.0"
   HUGO_ENV = "production"
   HUGO_ENABLEGITINFO = "true"
-
-[context.branch-deploy.environment]
-  HUGO_VERSION = "0.140.0" # if older, use format: 0.53 (no trailing zero)
-
-[context.deploy-preview.environment]
-  HUGO_VERSION = "0.140.0"
 
 [[redirects]]
     from = "/2011"

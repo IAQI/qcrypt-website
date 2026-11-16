@@ -1,7 +1,7 @@
 # publishDir = "docs"
 
 baseURL = "https://qcrypt.net"
-languageCode = "en"
+locale = "en"
 title = "QCrypt Conference Website"
 
 # These must stay above the first [table]: below [module] they would be
@@ -232,7 +232,7 @@ enableMissingTranslationPlaceholders = true
 [languages]
 [languages.en]
     weight = 1
-    languageName = "us"
+    label = "us"
 
 [taxonomies]
     tag = "tags"
