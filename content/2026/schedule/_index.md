@@ -4,6 +4,8 @@ year: 2026
 type: schedule
 draft: false
 horizontal: false
+# program.json, papers.json and program.ics next to this page (for calendars and AI agents)
+outputs: [html, rss, programjson, papersjson, programics]
 menu:
     2026:
         weight: 25
