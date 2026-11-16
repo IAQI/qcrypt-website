@@ -92,6 +92,15 @@ enableMissingTranslationPlaceholders = true
     address = "100 Louis-Pasteur Private, Ottawa, ON K1N 9N3, Canada"
     attendanceMode = "offline"
 
+[params.2027]
+  city = "Vienna, Austria"
+  timeanddate_cityid = 259
+  themeColor = "#660038" # stand-in (IAQI maroon); TODO: same as --primary in theme-2027.scss
+  [params.2027.logos] # TODO: the 2027 images in static/images/2027/ (formats: website guide, "Stand-in images")
+    jumbo = "/images/placeholder/background.svg"
+    header = "/images/placeholder/header-logo.svg"
+    banner = "/images/placeholder/banner.svg"
+
 [params.logos]
     footer = "/images/logos/netlify-color-accent.svg"
     footer_link = "https://www.netlify.com"
@@ -183,6 +192,46 @@ enableMissingTranslationPlaceholders = true
     identifier = "logo"
     pageRef = "/2026/logo"
 
+  [[menu.2027]]
+    name = "Home"
+    weight = 10
+    identifier = "home"
+    pageRef = '/2027'
+  [[menu.2027]]
+    name = "Program"
+    weight = 20
+    identifier = "program"
+  [[menu.2027]]
+    name = "Attend"
+    weight = 30
+    identifier = "attend"
+  [[menu.2027]]
+    name = "Sponsors"
+    weight = 40
+    identifier = "sponsors"
+    pageRef = "/2027/partners"
+  [[menu.2027]]
+    name = "Committees"
+    weight = 50
+    identifier = "committees"
+    pageRef = "/2027/team"
+  [[menu.2027]]
+    name = "About"
+    weight = 60
+    identifier = "about"
+  [[menu.2027]]
+    name = "QCrypt 2028"
+    parent = "about"
+    weight = 30
+    identifier = "2028"
+    pageRef = "/2027/2028"
+  [[menu.2027]]
+    name = "About the Logo"
+    parent = "about"
+    weight = 40
+    identifier = "logo"
+    pageRef = "/2027/logo"
+
 [languages]
 [languages.en]
     weight = 1
@@ -217,5 +266,3 @@ unsafe = true
     [privacy.youtube]
         disable = true
         privacyEnhanced = true
-
-         
