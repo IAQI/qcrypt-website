@@ -20,3 +20,11 @@ github.com/IAQI/conference-theme v0.0.0-20261115200144-ca1cc57b3af7 h1:VzyyJdpoF
 github.com/IAQI/conference-theme v0.0.0-20261115200144-ca1cc57b3af7/go.mod h1:kl8t24/Ax7DJiZWfMjkzCohnTxG3snMGw5MWwBQUp/M=
 github.com/IAQI/conference-theme v0.0.0-20261115201537-575984749570 h1:YRmhSIKKkDw5LA10fR3JQ/EZm33YWBTeh1D/FdoQgdA=
 github.com/IAQI/conference-theme v0.0.0-20261115201537-575984749570/go.mod h1:kl8t24/Ax7DJiZWfMjkzCohnTxG3snMGw5MWwBQUp/M=
+github.com/IAQI/conference-theme v0.0.0-20261115212042-7a7550819ef9 h1:sRuXy5yaNBlistpnL9eme7U3ppFzJIPQN0xJDOcClHc=
+github.com/IAQI/conference-theme v0.0.0-20261115212042-7a7550819ef9/go.mod h1:kl8t24/Ax7DJiZWfMjkzCohnTxG3snMGw5MWwBQUp/M=
+github.com/IAQI/conference-theme v0.0.0-20261115212654-e05effaaac81 h1:5+ZWOK8XUcS5ZVk7sNgpSBCs6FPf3lsx6K+/rXwBoPg=
+github.com/IAQI/conference-theme v0.0.0-20261115212654-e05effaaac81/go.mod h1:kl8t24/Ax7DJiZWfMjkzCohnTxG3snMGw5MWwBQUp/M=
+github.com/IAQI/conference-theme v0.0.0-20261116061935-79a0592388eb h1:zGvYYMvhWSzEjnOR7mK1KTKAEonG48IEcgpcZE5cjrA=
+github.com/IAQI/conference-theme v0.0.0-20261116061935-79a0592388eb/go.mod h1:kl8t24/Ax7DJiZWfMjkzCohnTxG3snMGw5MWwBQUp/M=
+github.com/IAQI/conference-theme v0.0.0-20261116064452-0f7e5f2ec2cd h1:d5uy1A9sbavE3RJO6myOrv4mLT2c9pV0h80OPD/+Sn0=
+github.com/IAQI/conference-theme v0.0.0-20261116064452-0f7e5f2ec2cd/go.mod h1:kl8t24/Ax7DJiZWfMjkzCohnTxG3snMGw5MWwBQUp/M=
