@@ -17,8 +17,8 @@ letter.synctex.gz
 node_modules
 _gen
 
-# snapshots Directory
-snapshots/
+# "Snapshots for AI" editor-extension directory
+.snapshots/
 
 # private data
 private_data/

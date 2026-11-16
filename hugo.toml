@@ -19,7 +19,8 @@ enableMissingTranslationPlaceholders = true
 # websites (layouts, styles, schedule and accepted-papers templates, scripts).
 # The version is pinned in go.mod / go.sum and downloaded at build time
 # (Netlify needs Go for this: GO_VERSION in netlify.toml). Update it with
-# `hugo mod get -u github.com/IAQI/conference-theme`.
+# `go get github.com/IAQI/conference-theme@<commit>` and commit go.mod and
+# go.sum (`hugo mod get` does not work for this; see AGENTS.md).
 # This site's own files in layouts/, assets/, i18n/ override the module's;
 # this year's colours are in assets/style/theme-YEAR.scss.
 [module]
@@ -30,10 +31,6 @@ enableMissingTranslationPlaceholders = true
 # using it would officially require a cookie banner at least in the EU, and we don't have one...
 # it's probably better not to track people anyways.
 # GoogleAnalytics = "G-221GMGECQ6"
-
-[services]
-  [services.googleAnalytics]
-    id = "G-221GMGECQ6"
 
 [params]
     title = "QCrypt Conference Website"
@@ -248,11 +245,6 @@ unsafe = true
 [privacy]
     [privacy.disqus]
         disable = true
-    [privacy.googleAnalytics]
-        anonymizeIP = false
-        disable = false
-        respectDoNotTrack = false
-        useSessionStorage = false
     [privacy.instagram]
         disable = true
         simple = false

@@ -29,7 +29,7 @@ The group photo is now available for download at the following website: <a href=
 
 The Boat Cruise group photo is now available for download at the following website: <a href="https://www.dropbox.com/scl/fi/iyjaxyyg84a5x18ms0ks6/BoatCruise_GroupPhoto.jpeg?rlkey=jk42gu8pjgclldsfykh876ll3&st=yk26gqpg&dl=0"> download here</a>
 
-<img src="/images/2026/places/GroupPhoto.jpg"/>
+<img src="/images/2026/places/GroupPhoto.JPG"/>
 <img src="/images/2026/places/BoatCruise_GroupPhoto.jpeg"/>
 <img src="/images/2026/places/IndustryPanel.jpg" alt="drawing" style="width:600px;height:400px"/>
 <img src="/images/2026/places/MatthieuBozzioTalk.jpg" alt="drawing" style="width:600px;height:400px"/>
