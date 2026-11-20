@@ -79,6 +79,69 @@ TZ = "Europe/Amsterdam"
     to = "https://qcrypt.iaqi.org/2022"
     status = 301
     force = true
+# Any page under an archived year (e.g. /2016/program/) goes to that year's
+# archive page: 2011-2022 had their own sites (2016.qcrypt.net, ...), so their
+# archived copies do not follow qcrypt.net paths.
+[[redirects]]
+    from = "/2011/*"
+    to = "https://qcrypt.iaqi.org/2011/"
+    status = 301
+    force = true
+[[redirects]]
+    from = "/2012/*"
+    to = "https://qcrypt.iaqi.org/2012/"
+    status = 301
+    force = true
+[[redirects]]
+    from = "/2013/*"
+    to = "https://qcrypt.iaqi.org/2013/"
+    status = 301
+    force = true
+[[redirects]]
+    from = "/2014/*"
+    to = "https://qcrypt.iaqi.org/2014/"
+    status = 301
+    force = true
+[[redirects]]
+    from = "/2015/*"
+    to = "https://qcrypt.iaqi.org/2015/"
+    status = 301
+    force = true
+[[redirects]]
+    from = "/2016/*"
+    to = "https://qcrypt.iaqi.org/2016/"
+    status = 301
+    force = true
+[[redirects]]
+    from = "/2017/*"
+    to = "https://qcrypt.iaqi.org/2017/"
+    status = 301
+    force = true
+[[redirects]]
+    from = "/2018/*"
+    to = "https://qcrypt.iaqi.org/2018/"
+    status = 301
+    force = true
+[[redirects]]
+    from = "/2019/*"
+    to = "https://qcrypt.iaqi.org/2019/"
+    status = 301
+    force = true
+[[redirects]]
+    from = "/2020/*"
+    to = "https://qcrypt.iaqi.org/2020/"
+    status = 301
+    force = true
+[[redirects]]
+    from = "/2021/*"
+    to = "https://qcrypt.iaqi.org/2021/"
+    status = 301
+    force = true
+[[redirects]]
+    from = "/2022/*"
+    to = "https://qcrypt.iaqi.org/2022/"
+    status = 301
+    force = true
 # QCrypt 2023 and 2024 are archived on qcrypt.iaqi.org, with the same page paths.
 [[redirects]]
     from = "/2023/*"
