@@ -36,3 +36,5 @@ github.com/IAQI/conference-theme v0.0.0-20261116133018-794405eb4302 h1:dYdciPQlS
 github.com/IAQI/conference-theme v0.0.0-20261116133018-794405eb4302/go.mod h1:kl8t24/Ax7DJiZWfMjkzCohnTxG3snMGw5MWwBQUp/M=
 github.com/IAQI/conference-theme v0.0.0-20261119215255-358e492af2ce h1:0z0YXAqHPKzlQmSNELHWL6gkCCREyJsmdGelavAK+bo=
 github.com/IAQI/conference-theme v0.0.0-20261119215255-358e492af2ce/go.mod h1:kl8t24/Ax7DJiZWfMjkzCohnTxG3snMGw5MWwBQUp/M=
+github.com/IAQI/conference-theme v0.1.0 h1:eOknlpRV6DKhSVdlkbVtKst3UvRBQRVLYr4xh62qNsc=
+github.com/IAQI/conference-theme v0.1.0/go.mod h1:kl8t24/Ax7DJiZWfMjkzCohnTxG3snMGw5MWwBQUp/M=
